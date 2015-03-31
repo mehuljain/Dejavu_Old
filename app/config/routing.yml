@@ -1,3 +1,4 @@
-app:
-    resource: "@AppBundle/Controller/"
+tracestay:
+    resource: "@TracestayBundle/Controller/"
     type:     annotation
+    prefix:   /
