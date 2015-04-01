@@ -12,3 +12,5 @@
 /composer.phar
 /nbproject/private/
 /nbproject*
+/src/Tracestay/Bundle/TracestayBundle/Resources/config/doctrine/
+
