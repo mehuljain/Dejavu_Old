@@ -59,7 +59,7 @@ class Websitesetting
     /**
      * @var string
      *
-     * @ORM\Column(name="tEmail_reply-to", type="string", length=255, nullable=true)
+     * @ORM\Column(name="tEmail_replyto", type="string", length=255, nullable=true)
      */
     private $temailReplyTo;
 
