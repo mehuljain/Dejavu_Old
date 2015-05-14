@@ -1,5 +1,5 @@
 <?php
-namespace Trace\Bundle\TraceBundle\Controller;
+namespace Tracestay\Bundle\TracestayBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -66,7 +66,7 @@ class SecurityController extends Controller
      */
     protected function renderLogin(array $data)
     {
-        return $this->render('TraceBundle:Security:login.html.twig', $data);
+        return $this->render('TracestayBundle:Security:login.html.twig', $data);
     }
 
     public function checkAction()

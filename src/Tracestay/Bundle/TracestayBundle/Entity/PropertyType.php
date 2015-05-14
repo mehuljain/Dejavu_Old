@@ -6,8 +6,7 @@
  * Goto https://github.com/johmue/mysql-workbench-schema-exporter for more
  * information.
  */
-
-namespace Entity;
+namespace Tracestay\Bundle\TracestayBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;

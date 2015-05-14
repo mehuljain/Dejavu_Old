@@ -127,38 +127,28 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // tracestay_tracestay_formcollection_index
-        if ($pathinfo === '/formcollection') {
-            return array (  '_controller' => 'Tracestay\\Bundle\\TracestayBundle\\Controller\\FormcollectionController::indexAction',  '_route' => 'tracestay_tracestay_formcollection_index',);
+        // home
+        if ($pathinfo === '/home') {
+            return array (  '_controller' => 'Tracestay\\Bundle\\TracestayBundle\\Controller\\ClientController::homeAction',  '_route' => 'home',);
         }
 
-        // register_subdomain
+        // index
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'register_subdomain');
+                return $this->redirect($pathinfo.'/', 'index');
             }
 
-            return array (  '_controller' => 'Tracestay\\Bundle\\TracestayBundle\\Controller\\SubdomainController::indexAction',  '_route' => 'register_subdomain',);
+            return array (  '_controller' => 'Tracestay\\Bundle\\TracestayBundle\\Controller\\ClientController::indexAction',  '_route' => 'index',);
         }
 
-        // subdomain
-        if (0 === strpos($pathinfo, '/subdomain') && preg_match('#^/subdomain/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'subdomain')), array (  '_controller' => 'Tracestay\\Bundle\\TracestayBundle\\Controller\\SubdomainController::domainAction',));
+        // register_website
+        if ($pathinfo === '/registerWebsite') {
+            return array (  '_controller' => 'Tracestay\\Bundle\\TracestayBundle\\Controller\\ClientController::registerWebsiteAction',  '_route' => 'register_website',);
         }
 
-        // universityLogin
-        if ($pathinfo === '/university') {
-            return array (  '_controller' => 'Tracestay\\Bundle\\TracestayBundle\\Controller\\UniversityController::universityAction',  '_route' => 'universityLogin',);
-        }
-
-        // currencyCode
-        if ($pathinfo === '/currencyCode') {
-            return array (  '_controller' => 'Tracestay\\Bundle\\TracestayBundle\\Controller\\UniversityController::currencycodeAction',  '_route' => 'currencyCode',);
-        }
-
-        // plan
-        if (0 === strpos($pathinfo, '/plan') && preg_match('#^/plan/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'plan')), array (  '_controller' => 'Tracestay\\Bundle\\TracestayBundle\\Controller\\UniversityController::planAction',));
+        // createDomain
+        if (0 === strpos($pathinfo, '/createDomain') && preg_match('#^/createDomain/(?P<subdomain>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'createDomain')), array (  '_controller' => 'Tracestay\\Bundle\\TracestayBundle\\Controller\\ClientController::createDomainAction',));
         }
 
         if (0 === strpos($pathinfo, '/log')) {
@@ -170,7 +160,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                         goto not_fos_user_security_login;
                     }
 
-                    return array (  '_controller' => 'FOS\\UserBundle\\Controller\\SecurityController::loginAction',  '_route' => 'fos_user_security_login',);
+                    return array (  '_controller' => 'Tracestay\\Bundle\\TracestayBundle\\Controller\\SecurityController::loginAction',  '_route' => 'fos_user_security_login',);
                 }
                 not_fos_user_security_login:
 

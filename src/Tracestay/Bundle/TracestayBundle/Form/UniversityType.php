@@ -1,6 +1,6 @@
 <?php
 
-namespace Trace\Bundle\TraceBundle\Form;
+namespace Tracestay\Bundle\TracestayBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -26,7 +26,7 @@ class UniversityType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Trace\Bundle\TraceBundle\Entity\University'
+            'data_class' => 'Tracestay\Bundle\TracestayBundle\Entity\University'
         ));
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Trace\Bundle\TraceBundle\Form;
+namespace Tracestay\Bundle\TracestayBundle\Form;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -38,7 +38,7 @@ class ClientType extends AbstractType
      * @param \Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver) {
-        $resolver->setDefaults(['data_class'=>'Trace\Bundle\TraceBundle\Entity\Client']);
+        $resolver->setDefaults(['data_class'=>'Tracestay\Bundle\TracestayBundle\Entity\Client']);
     }
 
     /*

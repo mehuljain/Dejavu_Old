@@ -6,12 +6,12 @@
  * Site:        http://tracestay.co.in
  *======================================================================*/
 
-namespace Trace\Bundle\TraceBundle\Controller;
+namespace Tracestay\Bundle\TracestayBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Trace\Bundle\TraceBundle\Entity\Client;
-use Trace\Bundle\TraceBundle\Form\ClientType;
+use Tracestay\Bundle\TracestayBundle\Entity\Client;
+use Tracestay\Bundle\TracestayBundle\Form\ClientType;
 use Symfony\Component\HttpFoundation\Request;
 
 class ClientController extends Controller
@@ -21,7 +21,7 @@ class ClientController extends Controller
      * @Route("/home",name="home")
      */
     public function homeAction(){
-        return $this->render('TraceBundle:home:index.html.twig');
+        return $this->render('TracestayBundle:home:index.html.twig');
     }
     
     /**
@@ -29,12 +29,12 @@ class ClientController extends Controller
      */
     public function indexAction(){
         if(null !== $this->getUser()){
-            $subdomain = $this->getDoctrine()->getRepository('TraceBundle:university')->findOneBy(['id'=>$this->getUser()->getUniversity()->getId()])->getTSubdomainName();
+            $subdomain = $this->getDoctrine()->getRepository('TracestayBundle:university')->findOneBy(['id'=>$this->getUser()->getUniversity()->getId()])->getTSubdomainName();
             $message="Hello ".$this->getUser()->getFirstName()." redirecting you to your domain at  http://{$subdomain}.tracestay.co.in/web/app_dev.php/login";
         }else{
             $message = 'not logged in.. no details to show';
         }
-        return $this->render('TraceBundle:user:index.html.twig', ['message'=>$message]);
+        return $this->render('TracestayBundle:user:index.html.twig', ['message'=>$message]);
     }
     
     /**
@@ -53,7 +53,7 @@ class ClientController extends Controller
             $em->flush();
             return $this->redirect($this->generateUrl('createDomain',['subdomain'=>$form->get('university')->getData()->getTSubdomainName()]));
         }
-        return $this->render('TraceBundle:Client:registerWebsite.html.twig', ['form'=>$form->createView()]);
+        return $this->render('TracestayBundle:Client:registerWebsite.html.twig', ['form'=>$form->createView()]);
     }
 
     /**
@@ -69,7 +69,7 @@ class ClientController extends Controller
         $current = file_get_contents($file);
         $current.= "\n " . $ip . ' ' . $subdomain . '.tracestay.co.in';
         
-        $link = file_put_contents($file, $current) ? "http://{$subdomain}.tracestay.co.in/Trace/web/app_dev.php/register/confirmed" : "";
+        $link = file_put_contents($file, $current) ? "http://{$subdomain}.tracestay.co.in/Dejavu/web/app_dev.php/register/confirmed" : "";
         
         exec("sudo chmod 644 /etc/hosts");
         chdir($currentDir);
