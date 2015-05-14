@@ -1,0 +1,100 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}TraceBundle:Client:registerWebsite{% endblock %}
+
+{% block body %}
+<h1>Registration Page</h1>
+{{ form_start(form, {attr:{novalidate: 'novalidate'}}) }}
+<table>
+    <tr>
+        <td align="left">{{form_label(form.description)}}</td>
+        <td>{{form_widget(form.description)}}</td>
+        <td></td>
+        <td>{{form_errors(form.description)}}</td>
+    </tr>
+     <tr>
+        <td align="left">{{form_label(form.username)}}</td>
+        <td>{{form_widget(form.username)}}</td>
+        <td></td>
+        <td>{{form_errors(form.username)}}</td>
+    </tr>
+    <tr>
+        <td align="left">{{form_label(form.password)}}</td>
+        <td>{{form_widget(form.password)}}</td>
+        <td></td>
+        <td>{{form_errors(form.password)}}</td>
+    </tr>
+    <tr>
+        <td align="left">{{form_label(form.plainPassword)}}</td>
+        <td>{{form_widget(form.plainPassword)}}</td>
+        <td></td>
+        <td>{{form_errors(form.plainPassword)}}</td>
+    </tr>
+    <tr>
+        <td align="left">{{form_label(form.firstName)}}</td>
+        <td>{{form_widget(form.firstName)}}</td>
+        <td></td>
+        <td>{{form_errors(form.firstName)}}</td>
+    </tr>
+    <tr>
+        <td align="left">{{form_label(form.lastName)}}</td>
+        <td>{{form_widget(form.lastName)}}</td>
+        <td></td>
+        <td>{{form_errors(form.lastName)}}</td>
+    </tr>
+    <tr>
+        <td align="left">{{form_label(form.university.tUniversityName)}}</td>
+        <td>{{form_widget(form.university.tUniversityName)}}</td>
+        <td></td>
+        <td>{{form_errors(form.university.tUniversityName)}}</td>
+    </tr>
+     <tr>
+        <td align="left">{{form_label(form.university.tSubdomainName)}}</td>
+        <td>{{form_widget(form.university.tSubdomainName)}}
+        <td>.tracestay.co.in</td>
+        <td>{{form_errors(form.university.tSubdomainName)}}</td>
+    </tr>
+    <tr>
+        <td align="left">{{form_label(form.country)}}</td>
+        <td align="center">{{form_widget(form.country)}}</td>
+        <td></td>
+        <td>{{form_errors(form.country)}}</td>
+    </tr>
+    <tr>
+        <td align="left">{{form_label(form.email)}}</td>
+        <td>{{form_widget(form.email)}}</td>
+        <td></td>
+        <td>{{form_errors(form.email)}}</td>
+    </tr>
+    <tr>
+        <td align="left">{{form_label(form.phone)}}</td>
+        <td>{{form_widget(form.phone)}}</td>
+        <td></td>
+        <td>{{form_errors(form.phone)}}</td>
+    </tr>
+    <tr>
+        <td align="left">{{form_label(form.altPhone)}}</td>
+        <td>{{form_widget(form.altPhone)}}</td>
+        <td></td>
+        <td>{{form_errors(form.altPhone)}}</td>
+    </tr>
+    <tr>
+        <td align="left">{{form_label(form.address)}}</td>
+        <td>{{form_widget(form.address)}}</td>
+        <td></td>
+        <td>{{form_errors(form.address)}}</td>
+    </tr>
+    <tr>
+        <td align="left">{{form_label(form.termsConditions)}}</td>
+        <td>{{form_widget(form.termsConditions)}}</td>
+        <td></td>
+        <td>{{form_errors(form.termsConditions)}}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td align="center">{{form_widget(form.submit)}}</td>
+    </tr>
+</table>
+{{form_end(form)}}
+
+{% endblock %}
