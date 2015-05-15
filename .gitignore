@@ -11,4 +11,5 @@
 /bin/
 /composer.phar
 /nbproject/private/
-/nbproject*
+/nbproject/
+/app/SymfonyRequirements.php
