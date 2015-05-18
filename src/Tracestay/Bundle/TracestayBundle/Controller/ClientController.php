@@ -4,7 +4,7 @@
  * 
  * Author:      Tracebyte
  * Site:        http://tracestay.co.in
- *======================================================================*/
+ *=======================================================================*/
 
 namespace Tracestay\Bundle\TracestayBundle\Controller;
 
@@ -16,6 +16,12 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ClientController extends Controller
 {
+    /**
+     * @Route("/error", name="errorPage")
+     */
+    public function errorPageAction($message = 'page not found'){
+        return $this->render('TracestayBundle:error:index.html.twig',['message'=>$message]);
+    }  
     
     /**
      * @Route("/home",name="home")
@@ -30,9 +36,9 @@ class ClientController extends Controller
     public function indexAction(){
         if(null !== $this->getUser()){
             $subdomain = $this->getDoctrine()->getRepository('TracestayBundle:university')->findOneBy(['id'=>$this->getUser()->getUniversity()->getId()])->getTSubdomainName();
-            $message="Hello ".$this->getUser()->getFirstName()." redirecting you to your domain at  http://{$subdomain}.tracestay.co.in/web/app_dev.php/login";
+            $message="Hello ".$this->getUser()->getFirstName()."http://{$subdomain}.tracestay.co.in/web/app_dev.php/login";
         }else{
-            $message = 'not logged in.. no details to show';
+            return $this->redirect($this->generateUrl('home'));
         }
         return $this->render('TracestayBundle:user:index.html.twig', ['message'=>$message]);
     }

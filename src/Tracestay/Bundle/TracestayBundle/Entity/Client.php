@@ -81,7 +81,7 @@ class Client extends BaseUser
      *                 minMessage = "Password must contain atleast 3 characters"
      *              )
      */
-    protected $password;
+    protected $plainPassword;
     
 
     /**
@@ -92,52 +92,52 @@ class Client extends BaseUser
      */
     //@Assert\Regex(/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/)
     protected $email;
-
-    /**
-     * @ORM\Column(name="phone", type="string", length=255)
-     * 
-     * @Assert\NotBlank
-     * @Assert\Length(
-     *                 min = 6,
-     *                 max = 15,
-     *                 minMessage = "Phone number must contain atleast 6 characters",
-     *                 maxMessage = "Phone numbers cannot contain more than 15 characters"
-     *              )
-     * @Assert\Type(type="int", message="Phone numbers only contain numbers")
-     */
-    private $phone;
-    
-     /**
-     * @ORM\Column(name="altPhone", type="string", length=255)
-     * @Assert\NotBlank
-     * @Assert\Length(
-     *                 min = 6,
-     *                 max = 15,
-     *                 minMessage = "Phone number must contain atleast 6 characters",
-     *                 maxMessage = "Phone numbers cannot contain more than 15 characters"
-     *              )
-     * @Assert\Type(type="int", message="Pone numbers can only contain numbers")
-     */
-    private $altPhone;
-    
-    /**
-     * @var string 
-     * 
-     * @ORM\Column(name="address", type="string", length=255)
-     * 
-     * @Assert\NotBlank
-     * @Assert\Length(
-     *                 min = 0,
-     *                 max = 20,
-     *                 maxMessage = "Address cannot contain more than 20 characters"
-     *              )
-     */
-    private $address;
-    
-    /**
-     * @var integer
-     * @ORM\Column(name="Country", type="integer")
-     */
+//
+//    /**
+//     * @ORM\Column(name="phone", type="string", length=255)
+//     * 
+//     * @Assert\NotBlank
+//     * @Assert\Length(
+//     *                 min = 6,
+//     *                 max = 15,
+//     *                 minMessage = "Phone number must contain atleast 6 characters",
+//     *                 maxMessage = "Phone numbers cannot contain more than 15 characters"
+//     *              )
+//     * @Assert\Type(type="int", message="Phone numbers only contain numbers")
+//     */
+//    private $phone;
+//    
+//     /**
+//     * @ORM\Column(name="altPhone", type="string", length=255)
+//     * @Assert\NotBlank
+//     * @Assert\Length(
+//     *                 min = 6,
+//     *                 max = 15,
+//     *                 minMessage = "Phone number must contain atleast 6 characters",
+//     *                 maxMessage = "Phone numbers cannot contain more than 15 characters"
+//     *              )
+//     * @Assert\Type(type="int", message="Pone numbers can only contain numbers")
+//     */
+//    private $altPhone;
+//    
+//    /**
+//     * @var string 
+//     * 
+//     * @ORM\Column(name="address", type="string", length=255)
+//     * 
+//     * @Assert\NotBlank
+//     * @Assert\Length(
+//     *                 min = 0,
+//     *                 max = 20,
+//     *                 maxMessage = "Address cannot contain more than 20 characters"
+//     *              )
+//     */
+//    private $address;
+//    
+//    /**
+//     * @var integer
+//     * @ORM\Column(name="Country", type="integer")
+//     */
     private $country;
     
 

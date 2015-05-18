@@ -6,23 +6,12 @@
 <h1>Registration Page</h1>
 {{ form_start(form, {attr:{novalidate: 'novalidate'}}) }}
 <table>
-    <tr>
-        <td align="left">{{form_label(form.description)}}</td>
-        <td>{{form_widget(form.description)}}</td>
-        <td></td>
-        <td>{{form_errors(form.description)}}</td>
-    </tr>
+   
      <tr>
         <td align="left">{{form_label(form.username)}}</td>
         <td>{{form_widget(form.username)}}</td>
         <td></td>
         <td>{{form_errors(form.username)}}</td>
-    </tr>
-    <tr>
-        <td align="left">{{form_label(form.password)}}</td>
-        <td>{{form_widget(form.password)}}</td>
-        <td></td>
-        <td>{{form_errors(form.password)}}</td>
     </tr>
     <tr>
         <td align="left">{{form_label(form.plainPassword)}}</td>
@@ -65,24 +54,6 @@
         <td>{{form_widget(form.email)}}</td>
         <td></td>
         <td>{{form_errors(form.email)}}</td>
-    </tr>
-    <tr>
-        <td align="left">{{form_label(form.phone)}}</td>
-        <td>{{form_widget(form.phone)}}</td>
-        <td></td>
-        <td>{{form_errors(form.phone)}}</td>
-    </tr>
-    <tr>
-        <td align="left">{{form_label(form.altPhone)}}</td>
-        <td>{{form_widget(form.altPhone)}}</td>
-        <td></td>
-        <td>{{form_errors(form.altPhone)}}</td>
-    </tr>
-    <tr>
-        <td align="left">{{form_label(form.address)}}</td>
-        <td>{{form_widget(form.address)}}</td>
-        <td></td>
-        <td>{{form_errors(form.address)}}</td>
     </tr>
     <tr>
         <td align="left">{{form_label(form.termsConditions)}}</td>

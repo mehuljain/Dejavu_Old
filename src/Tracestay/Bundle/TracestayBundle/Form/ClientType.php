@@ -17,16 +17,14 @@ class ClientType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
                 ->add('university', new UniversityType(), ['label'=>' '])
-                ->add('description', 'choice',['mapped'=>false,'choices'=>[1=>'Real Estate Agent', 2=>'Student', 3=>'Property Provider']])
                 ->add('firstName')
                 ->add('lastName')
                 ->add('username', 'text', ['attr'=>['maxlength'=>15]])
-                ->add('password','password')
-                ->add('plainPassword', 'password')
+                ->add('plainPassword', 'password', ['label'=>'Password'])
                 ->add('email')
-                ->add('phone', 'integer', ['attr'=>['maxlength'=>15]])
-                ->add('altPhone', 'integer', ['attr'=>['maxlength'=>15]])
-                ->add('address', 'textarea')
+//                ->add('phone', 'integer', ['attr'=>['maxlength'=>15]])
+//                ->add('altPhone', 'integer', ['attr'=>['maxlength'=>15]])
+//                ->add('address', 'textarea')
                 ->add('termsConditions', 'checkbox', ['label'=>'Terms & Conditions' ,'mapped'=>false])
                 ->add('country', 'choice', ['choices'=>[1=>'India', 2=>'France']])
                 ->add('submit', 'submit');

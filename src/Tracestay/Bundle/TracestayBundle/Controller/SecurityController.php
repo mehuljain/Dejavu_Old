@@ -11,6 +11,23 @@ class SecurityController extends Controller
 {
     public function loginAction(Request $request)
     {
+        /*
+         * get subdomain name from url
+         * find subdomain in db and return universityId
+         * if not found redirect to error page
+         * 
+         * find client record which matches with universityId
+         * if no matches are found recirect to error page
+         */
+        $universityId = $this->getDoctrine()->getRepository('TracestayBundle:university')->findOneBy(['tSubdomainName'=>str_replace(".tracestay.co.in", "", $_SERVER['SERVER_NAME'])])->getId();
+        if(!$universityId){
+            return $this->redirect($this->generateUrl('errorPage'));
+        }
+        //get form object and query db only if form is submitted
+        if(!$this->getDoctrine()->getRepository('TracestayBundle:client')->findBy(['university'=>$universityId, 'username'=>$request->request->get('username', '')])){
+            return $this->redirect($this->generateUrl('errorPage'));
+        }
+        
         /** @var $session \Symfony\Component\HttpFoundation\Session\Session */
         $session = $request->getSession();
 
@@ -39,7 +56,6 @@ class SecurityController extends Controller
 
         // last username entered by the user
         $lastUsername = (null === $session) ? '' : $session->get($lastUsernameKey);
-
         if ($this->has('security.csrf.token_manager')) {
             $csrfToken = $this->get('security.csrf.token_manager')->getToken('authenticate')->getValue();
         } else {
@@ -48,11 +64,11 @@ class SecurityController extends Controller
                 ? $this->get('form.csrf_provider')->generateCsrfToken('authenticate')
                 : null;
         }
-
+        
         return $this->renderLogin(array(
             'last_username' => $lastUsername,
             'error' => $error,
-            'csrf_token' => $csrfToken,
+            'csrf_token' => $csrfToken
         ));
     }
 
